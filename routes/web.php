@@ -21,15 +21,15 @@ Route::get('/clientes', function(){
         echo "<p>Nome: " . $c->nome . "</p>";
         echo "<p>Telefone: " . $c->telefone . "</p>";
 
-        $e = Endereco::where('cliente_id', $c->id)->first();
+        // $e = Endereco::where('cliente_id', $c->id)->first();
 
-        echo "<p>ID cliente: " . $e->cliente_id . "</p>";
-        echo "<p>Rua: " . $e->rua . "</p>";
-        echo "<p>Numero: " . $e->numero . "</p>";
-        echo "<p>Bairro: " . $e->bairro . "</p>";
-        echo "<p>Cidade: " . $e->cidade . "</p>";
-        echo "<p>UF: " . $e->uf . "</p>";
-        echo "<p>CEP: " . $e->cep . "</p>";
+        echo "<p>ID cliente: " . $c->endereco->cliente_id . "</p>";
+        echo "<p>Rua: " . $c->endereco->rua . "</p>";
+        echo "<p>Numero: " . $c->endereco->numero . "</p>";
+        echo "<p>Bairro: " . $c->endereco->bairro . "</p>";
+        echo "<p>Cidade: " . $c->endereco->cidade . "</p>";
+        echo "<p>UF: " . $c->endereco->uf . "</p>";
+        echo "<p>CEP: " . $c->endereco->cep . "</p>";
 
         echo "<hr>";
     }
