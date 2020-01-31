@@ -11,6 +11,25 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+use App\Cliente;
+
+Route::get('/clientes', function(){
+    $clientes = Cliente::all();
+    foreach($clientes as $c) {
+        echo "<p>ID: " . $c->id . "</p>";
+        echo "<p>Nome: " . $c->nome . "</p>";
+        echo "<p>Telefone: " . $c->telefone . "</p>";
+        echo "<hr>";
+    }
+});
+
+
+Route::get('/clientes', function(){
+    $clientes = Cliente::all();
+    foreach($clientes as $c) {
+        echo "<p>ID: " . $c->id . "</p>";
+        echo "<p>Nome: " . $c->nome . "</p>";
+        echo "<p>Telefone: " . $c->telefone . "</p>";
+        echo "<hr>";
+    }
 });
