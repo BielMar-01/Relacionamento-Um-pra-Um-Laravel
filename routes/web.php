@@ -23,7 +23,6 @@ Route::get('/clientes', function(){
 
         // $e = Endereco::where('cliente_id', $c->id)->first();
 
-        echo "<p>ID cliente: " . $c->endereco->cliente_id . "</p>";
         echo "<p>Rua: " . $c->endereco->rua . "</p>";
         echo "<p>Numero: " . $c->endereco->numero . "</p>";
         echo "<p>Bairro: " . $c->endereco->bairro . "</p>";
@@ -52,4 +51,40 @@ Route::get('/enderecos', function(){
         echo "<p>CEP: " . $e->cep . "</p>";
         echo "<hr>";
     }
+});
+
+Route::get('/inserir', function() {
+
+    $c = new Cliente();
+    $c->nome = "Jose Alemeida";
+    $c->telefone = "11 97878-7878";
+    $c->save();
+
+    $e = new Endereco();
+    $e->rua = "Av. do Estado";
+    $e->numero = 400;
+    $e->bairro = "Centro";
+    $e->cidade = "São Paulo";
+    $e->uf = "SP";
+    $e->cep = "13010-456";
+    
+    $c->endereco()->save($e);
+
+
+
+    $c = new Cliente();
+    $c->nome = "Marcos Silva";
+    $c->telefone = "12 831878-6778";
+    $c->save();
+
+    $e = new Endereco();
+    $e->rua = "Av. do Brasil";
+    $e->numero = 1500;
+    $e->bairro = "Jardim Olivia";
+    $e->cidade = "São Paulo";
+    $e->uf = "SP";
+    $e->cep = "73222-456";
+    
+    $c->endereco()->save($e);
+
 });
